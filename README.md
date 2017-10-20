@@ -1,8 +1,8 @@
-## 插件： multipliableitem
-该插件基于jquery3+，bootstrap3+，应用于配置不同类型的自定义参数，demo提供了字符串、密码、单选框、复选框四种类型的参数。
-## 使用方法：
-#### 第一步：npm install
-#### 第二步：需要运行的话，执行命令：npm run build
-#### 第三步：浏览器直接打开 index.html
+## Plugin： multipliableitem
+The plugun base on jquery3+，bootstrap3+，apply to difference type customparams，the demo provide four types: string,password,radio,checkbox。Of course, you can add more.
+## Usage：
+#### Step1：npm install
+#### Step2：If you need to run，run command：npm run build
+#### Steep3：Open index.html with browser.
 ###
-#### 另外：获取压缩版js，执行命令：grunt
+#### By the way： To get minfy js and css，run command：grunt
