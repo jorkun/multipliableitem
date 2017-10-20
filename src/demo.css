@@ -1,0 +1,13 @@
+body {
+	padding: 40px;
+}
+
+form {
+	border: 2px dashed #ccc;
+	margin: 40px 0;
+	padding: 30px;
+}
+
+form h2 {
+	margin-left: 15px;
+}
