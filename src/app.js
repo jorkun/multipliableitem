@@ -1,6 +1,6 @@
-var multipliableItem = require('./jquery.crp.multipliableItem');
+var multipliableItem = require('./jquery.ui.multipliableItem');
 require("./../node_modules/bootstrap/dist/css/bootstrap.min.css");
-require('./jquery.crp.multipliableItem.css');
+require('./jquery.ui.multipliableItem.css');
 require('./demo.css');
 $("#demo1").multipliableItem({
 	typeLabelText: "参数类型",
