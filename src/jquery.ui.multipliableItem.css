@@ -26,13 +26,19 @@
 
 .ui-multipliable-type .type-label {
 	font-weight: bold;
-	vertical-align: middle;
 	margin-right: 10px;
+	display: inline-block;
+}
+.ui-multipliable-type > div {
+	display: inline-block;
+	margin-left: 10px;
 }
 
 .ui-multipliable-item {
-	width: 100%;
+	width: 100% !important;
 	display: block;
+	margin-left: 0 !important;
+	margin-right: 0 !important;
 	position: relative;
 }
 
@@ -61,13 +67,16 @@
 .ui-multipliable-item>div.error-box {
 	display: block;
 	width: 100%;
+	line-height: 0;
 }
 .ui-multipliable-item>div.error-box > .left,
 .ui-multipliable-item>div.error-box > .right {
 	display: inline-block;
 	margin-left: 10%;
-	padding-top: 10px;
+	line-height: 28px;
 	width: 40%;
+	text-align: left;
+	color: #a94442;
 }
 .ui-multipliable-item>div button {
 	margin-left: 4px;

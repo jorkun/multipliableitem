@@ -19,7 +19,7 @@
 						validate: false,
 						// right input name
 						rightName: "value",
-						typeWrap: null,
+						typeWrapper: null,
 						typeLabelText: "类型",
 						itemLabelText: "类型",
 						leftItemText: "参数名",
@@ -67,7 +67,7 @@
 						'<label>' + settings.rightItemText + '</label>' +
 						'<input type="' + (type == 'password' ? 'password' : 'text') + '" name="' + settings.rightName + '" value="' + (vBox ? vBox[1] : '') + '" class="right-input form-control">' +
 						'<div class="right-control-box"><button class="btn btn-primary add" type="button">+</button><button class="btn btn-default remove" type="button">-</button></div>' +
-						/*(settings.validate ? '<div class="error-box hidden"><span class="left"></span><span class="right"></span></div>' : '') +*/
+						(settings.validate ? '<div class="error-box"><span class="left"></span><span class="right"></span></div>' : '') +
 						'</div>';
 				}
 				var datas = settings.data,
@@ -119,9 +119,9 @@
 					typeBox.append('<label class="type-label">' + settings.typeLabelText + '</label>');
 					if (typeof datas.types === 'object') {
 						$.each(datas.types, function(i, o) {
-							if(settings.typeWrap) {
-								typeBox.append($(typeWrap).append('<input type="checkbox" ' + ((i == 0 && !datas.items) || (datas.items && datas.items[o.name] && datas.items[o.name].length) ? 'checked' : '') + ' name="' + o.name + '" data-index="' + i + '" title="' + o.title + '" id="' + o.name + '">')
-								.append('<label for="' + o.name + '">' + o.title + '</label>'))
+							if(settings.typeWrapper) {
+								typeBox.append($(settings.typeWrapper).append('<input type="checkbox" ' + ((i == 0 && !datas.items) || (datas.items && datas.items[o.name] && datas.items[o.name].length) ? 'checked' : '') + ' name="' + o.name + '" data-index="' + i + '" title="' + o.title + '" id="' + o.name + '">')
+										.append('<label for="' + o.name + '">' + o.title + '</label>'));
 							} else {
 								typeBox.append('<input type="checkbox" ' + ((i == 0 && !datas.items) || (datas.items && datas.items[o.name] && datas.items[o.name].length) ? 'checked' : '') + ' name="' + o.name + '" data-index="' + i + '" title="' + o.title + '" id="' + o.name + '">')
 									.append('<label for="' + o.name + '">' + o.title + '</label>');
@@ -154,7 +154,7 @@
 						$this.trigger('item.addLine', ["init", type, tmpl, serializeNum]);
 					} else {
 						fieldBox.children(".item-type-" + type).remove();
-						$this.trigger('item.removeLine', ["init", type, fieldBox.children(".item-type-" + type)]);
+						$this.trigger('item.removeLine', ["init", fieldBox.children(".item-type-" + type)]);
 					}
 					serializeNum++;
 					initView();
@@ -259,11 +259,8 @@
 		destroy: function() {
 			return $(this).each(function() {
 				var $this = $(this);
-				$this.removeClass().children().removeClass(function(index, oldClass){
-					var reg = /\ui-multipliable-\b/;
-					return oldClass.replace(reg,'');
-				}).removeData().html('');
-				$this.removeData(pluginName).removeClass();
+				$this.removeClass().children().removeClass().removeData().unbind().html('');
+				$this.removeData().removeClass().unbind();
 
 			});
 		},
@@ -280,7 +277,7 @@
 			return methods.init.apply(this, arguments);
 		} else {
 			// 如果方法不存在或者参数没传入，则报出错误。需要调用的方法没有被正确调用
-			$.error("Method" + method + "does not exsit on $.multipliableItme");
+			$.error("Method" + method + "does not exsit on $.multipliableItem");
 			return this;
 		}
 	};
