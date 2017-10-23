@@ -82,7 +82,7 @@
 					} else {
 						fieldBox.find(".empty").remove();
 						$.each(typeBox.find("input:checkbox"), function(i, v) {
-							var type = $(v).attr("name");
+							var type = $(v).data("type");
 							if (!fieldBox.find(".ui-multipliable-item.item-type-" + type).length && $(v).prop('checked')) {
 								$(v).prop('checked', false).change();
 							}
@@ -120,10 +120,10 @@
 					if (typeof datas.types === 'object') {
 						$.each(datas.types, function(i, o) {
 							if(settings.typeWrapper) {
-								typeBox.append($(settings.typeWrapper).append('<input type="checkbox" ' + ((i == 0 && !datas.items) || (datas.items && datas.items[o.name] && datas.items[o.name].length) ? 'checked' : '') + ' name="' + o.name + '" data-index="' + i + '" title="' + o.title + '" id="' + o.name + '">')
+								typeBox.append($(settings.typeWrapper).append('<input type="checkbox" ' + ((i == 0 && !datas.items) || (datas.items && datas.items[o.name] && datas.items[o.name].length) ? 'checked' : '') + ' name="multipliableType" data-type="' + o.name + '" data-index="' + i + '" title="' + o.title + '" id="' + o.name + '">')
 										.append('<label for="' + o.name + '">' + o.title + '</label>'));
 							} else {
-								typeBox.append('<input type="checkbox" ' + ((i == 0 && !datas.items) || (datas.items && datas.items[o.name] && datas.items[o.name].length) ? 'checked' : '') + ' name="' + o.name + '" data-index="' + i + '" title="' + o.title + '" id="' + o.name + '">')
+								typeBox.append('<input type="checkbox" ' + ((i == 0 && !datas.items) || (datas.items && datas.items[o.name] && datas.items[o.name].length) ? 'checked' : '') + ' name="multipliableType" data-type="' + o.name + '" data-index="' + i + '" title="' + o.title + '" id="' + o.name + '">')
 									.append('<label for="' + o.name + '">' + o.title + '</label>');
 							}
 							if (datas.items) {
@@ -140,7 +140,7 @@
 				typeBox.on('change', 'input:checkbox', function() {
 					var me = $(this),
 						index = me.data("index"),
-						type = me.attr("name"),
+						type = me.data("type"),
 						title = me.attr("title"),
 						nextTarget = fieldBox.find('[data-index="' + (index + 1) + '"]');
 					if (me.prop("checked")) {
