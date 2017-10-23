@@ -78,7 +78,7 @@
 				// init views
 				function initView() {
 					if (!fieldBox.children().length) {
-						fieldBox.html('<label class="empty">未选择任何配置项！</label>');
+						fieldBox.html('<label class="empty">未选择任何配置项，一旦保存，将会删除原有配置！</label>');
 					} else {
 						fieldBox.find(".empty").remove();
 						$.each(typeBox.find("input:checkbox"), function(i, v) {
