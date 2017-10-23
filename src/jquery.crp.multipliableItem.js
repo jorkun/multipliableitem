@@ -114,10 +114,10 @@
 					}
 				}
 				// init types
-				if (datas && datas.type) {
+				if (datas && datas.types) {
 					typeBox.append('<label class="type-label">' + settings.typeLabelText + '</label>');
-					if (typeof datas.type === 'object') {
-						$.each(datas.type, function(i, o) {
+					if (typeof datas.types === 'object') {
+						$.each(datas.types, function(i, o) {
 							typeBox.append('<input type="checkbox" ' + ((i == 0 && !datas.items) || (datas.items && datas.items[o.name] && datas.items[o.name].length) ? 'checked' : '') + ' name="' + o.name + '" data-index="' + i + '" title="' + o.title + '" id="' + o.name + '">')
 								.append('<label for="' + o.name + '">' + o.title + '</label>');
 							if (datas.items) {

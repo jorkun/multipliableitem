@@ -9,7 +9,7 @@ $("#demo1").multipliableItem({
 	leftName: "paramName",
 	rightName: "paramValue",
 	data: {
-		type: [{
+		types: [{
 			name: "string",
 			title: "字符串"
 		}, {
@@ -36,7 +36,7 @@ $("#demo2").multipliableItem({
 	leftName: "paramName",
 	rightName: "paramValue",
 	data: {
-		type: [{
+		types: [{
 			name: "string",
 			title: "字符串"
 		}, {
