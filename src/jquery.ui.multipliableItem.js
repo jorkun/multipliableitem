@@ -134,7 +134,7 @@
 						$.error('data error!');
 					}
 				} else {
-					typeBox.html('<h5 class="empty">data or data.type option cannot empty.</h5>');
+					typeBox.html('<h5 class="empty">opiton data or data.types need initialization.</h5>');
 				}
 
 				typeBox.on('change', 'input:checkbox', function() {
